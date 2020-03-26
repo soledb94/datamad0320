@@ -6,6 +6,8 @@ my_listComprehension = [1/egg for egg in eggs]
 
 print(my_listComprehension)
 
+"""
+
 #Insert here the module/library import statements 
 
 
@@ -188,4 +190,4 @@ def linux_interaction():
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
 
-
+"""
