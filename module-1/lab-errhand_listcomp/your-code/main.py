@@ -11,8 +11,9 @@ print(my_listComprehension)
 import math
 import os 
 import random
+import sys
 
-"""
+
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -91,13 +92,10 @@ print(consonants)
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
 
-	#os.getcwd()
-al hacer el path en vez de poner user/clara/desktop... existen las ruta relativas con *:
-empieza en user y etc
 
 
-
-
+files = [f for f in sorted(os.listdir(/Users/julio/datamad0320))]
+print(files)
 
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
@@ -115,9 +113,6 @@ list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
 
 flatten_list=[x for e in list_of_lists for x in e]
 print(flatten_list)
-
-
-
 
 
 
@@ -170,7 +165,7 @@ try:
 except Exception as err:
     print(err,type(err))
 
-"""
+
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
@@ -178,15 +173,11 @@ except Exception as err:
 # Check in provided resources the type of error you may use. 
 
 
-
-   
-
-
 def division(a,b):
     if b==0:
         raise valueError("You should choose a different number")
-    if a!=int or b!=int:
-        raise ValueError("Yoy shoud choose an int as a number")
+    elif type(a)!=int or type(b)!=int:
+        raise ValueError("Yoy should choose an int as a number")
     return a/b
 
 while True:
@@ -197,28 +188,41 @@ while True:
         break
     except:
         print("Try again")
-"""
 
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-f = open('testfile','r')
-f.write('Test write this')
+***La resolución de este ejercicio lo he visto en internet. Independientemente de que no se me 
+ejecuta, lo que no he entendido de este ejercicio es que esto se ejecutaría si le dieramos un 
+archivo que esté en nuestro repositorio. Por lo que no veo el sentido del ejercicio***
 
+try:
+  f = open("testfile","r")
+  f.write("Test write this")
+except:
+  print("Something went wrong")
+finally:
+  f.close()
 
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
+***Aquí me pasa lo mismo que el ejercicio anterior***
+
 
 fp = open('myfile.txt')
+
+try:
     line = f.readline()
     i = int(s.strip())
-
-
+except:
+    print("Something went wrong")
+finally:
+  f.close()
 
 
 #20. The following function can only run on a Linux system. 
@@ -229,6 +233,11 @@ fp = open('myfile.txt')
 def linux_interaction():
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
+try:
+    linux_interaction()
+except:
+    print('Linux function was not executed')
+
 
 
 # Bonus Questions:
@@ -239,9 +248,29 @@ def linux_interaction():
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
 
+***Este ejercicio no me sale. No entiendo porque cuando se ejecuta el try, debería de ejecutarse 
+la raiz cuadrada pero no pasa. Siempre me sale "try again"***
+
+
+while True:
+
+    try:
+        n=input("Choose a number: ")
+        if type(n)!=int:
+         raise ValueError("Yoy should choose an int as a number")
+         print(math.square(n))
+        break
+    except:
+        print("Try again")
+    else:
+        print("ok")
+    
+
 
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
-"""
+
+results=[e for e in range(1,1001) for n in range(2,10) if e%n==0 ]
+print(results)
