@@ -80,7 +80,7 @@ class War:
         s1=random.choice(self.saxonArmy)
 
         v_attack=s1.receiveDamage(v1.attack())
-        self.saxomArmy=[s for s in self.saxonArmy if s1.health>0] 
+        self.saxomArmy=[s for s in self.saxonArmy if s.health>0] 
         return v_attack
 
 
@@ -89,7 +89,7 @@ class War:
         v2=random.choice(self.vikingArmy)
 
         s_attack=v2.receiveDamage(s2.attack())
-        self.vikingArmy=[v for v in self.vikingArmy if v2.health>0] 
+        self.vikingArmy=[v for v in self.vikingArmy if v.health>0] 
         return s_attack
 
     def showStatus(self):
